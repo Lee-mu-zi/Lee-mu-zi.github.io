@@ -3,24 +3,23 @@
 import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
-  "/",
 
   {
-    text: '读书分享',
+    text: '书读百遍',
     icon: 'book',
-    link: '/readnote/',
+    link: '/notes/',
   },
 
   {
-    text: '算法记录',
-    icon: '/assets/algorithm/algorithm.svg',
-    link: '/algorithm/',
+    text: '开发工具',
+    icon: 'tools',
+    link: '/tools/',
   },
 
   {
-    text: "记录自己",
+    text: "关于作者",
     icon: "user",
-    link: "author/",
+    link: "/author/",
   },
 
   // "/demo/",

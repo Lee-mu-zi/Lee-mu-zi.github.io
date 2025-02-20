@@ -1,7 +1,7 @@
 ---
 title: 初步计划
 # icon: plus
-cover: /assets/covers/image.png
+cover: /assets/images/cover1.jpg
 order: 1
 ---
 

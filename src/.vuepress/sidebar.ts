@@ -25,9 +25,16 @@ export default sidebar({
     // },
   ],
 
-  "/algorithm/": "structure",
+  "/tools/": [
+    {
+      text: "Docker",
+      icon: "/assets/tools/Docker.svg",
+      prefix: "docker/",
+      children: "structure",
+    },
+  ],
 
-  "/readnote/": "structure",
+  "/notes/": "structure",
 
   "/author/": [
     {
