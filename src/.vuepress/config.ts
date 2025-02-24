@@ -1,4 +1,5 @@
 import { defineUserConfig } from "vuepress";
+import { readingTimePlugin } from '@vuepress/plugin-reading-time'
 
 import theme from "./theme.js";
 
