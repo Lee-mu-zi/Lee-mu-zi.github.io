@@ -26,7 +26,10 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "豫ICP备2024079032号-1",
+  footer: '<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2024079032号-1</a>',
+
+  pageInfo: ["Author", "Category", "Tag", "Original", "Word", "ReadingTime"],
+
   displayFooter: true,
 
   // 博客相关
