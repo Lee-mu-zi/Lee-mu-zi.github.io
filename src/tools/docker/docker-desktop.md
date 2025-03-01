@@ -79,3 +79,43 @@ sticky: true
 - `CONTAINER`：目标容器的名称或 ID。
 
 ## Docker安装MySQL
+
+### 拉取镜像`docker pull mysql:latest`
+<img src="/assets/tools/docker-desktop/Snipaste_2025-03-01_21-36-11.png" style="zoom:100%">
+### 运行MySQL容器
+使用以下命令能够启动一个MySQL容器
+```bash
+docker run -d \
+  --name mysql_container \
+  -e MYSQL_ROOT_PASSWORD=your_password \
+  -p 3306:3306 \
+  mysql
+```
+参数说明
+- `-d`：以后台模式运行容器。
+
+- `--name mysql_container`：为容器指定一个名称（例如 mysql_container）。
+
+- `-e MYSQL_ROOT_PASSWORD=your_password`：设置 MySQL 的 root 用户密码（将 your_password 替换为你的密码）。
+
+- `-p 3306:3306`：将容器的 3306 端口映射到主机的 3306 端口。
+
+- `mysql`：使用的镜像名称。
+运行结果
+<img src="/assets/tools/docker-desktop/Snipaste_2025-03-01_21-59-12.png" style="zoom:100%">
+运行完成后可以通过`docker ps -a`或`docker container ls -a`查询所有容器
+<img src="/assets/tools/docker-desktop/Snipaste_2025-03-01_22-00-49.png" style="zoom:100%">
+### 连接MySQL
+容器创建成功之后就可以使用数据库工具连接，需要注意的是主机应该输入的应该是虚拟机的。
+<img src="/assets/tools/docker-desktop/Snipaste_2025-03-01_22-05-06.png" style="zoom:100%">
+### 管理MySQL的配置文件
+如果你需要自定义 MySQL 的配置文件（如 my.cnf），可以将配置文件挂载到容器中。
+```bash
+docker run -d \
+  --name mysql_container \
+  -e MYSQL_ROOT_PASSWORD=your_password \
+  -p 3306:3306 \
+  -v /path/to/my.cnf:/etc/mysql/my.cnf \
+  mysql
+```
+
