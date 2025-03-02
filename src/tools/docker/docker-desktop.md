@@ -31,7 +31,7 @@ sticky: true
 <br>
 
 
-<img src="/assets/author/jiyu.png" style="zoom:10%;" />作者寄语：
+<img src="/assets/jiyu.png" style="zoom:10%;" />作者寄语：
 
 在这个章节主要是对Docker进行安装和一些常见的操作命令的总结，在日常的开发中，一般使用的是Linux系统作为环境，所以我将会通过VMware安装Ubuntu系统作为一个基础环境来安装Docker。当然也可以使用Windows安装Docker Desktop，它是一个可视化界面的Docker，会更清楚的展现出一些镜像和容器信息，安装方式也十分简单。关于Ubuntu如何安装网上也有很多教程<a href="https://yeasy.gitbook.io/docker_practice/install/ubuntu">（Ubuntu安装Docker）</a>
 

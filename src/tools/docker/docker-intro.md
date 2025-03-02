@@ -8,7 +8,7 @@ order: 1
 <br>
 
 
-<img src="/assets/author/jiyu.png" style="zoom:10%;" />作者寄语：
+<img src="/assets/jiyu.png" style="zoom:10%;" />作者寄语：
 
 概念是一个老生常谈的话题，每次学一个新的技术，总是避免不开前面繁琐复杂的概念环节，虽然概念这些东西比较乏味，但是不得不说，概念有时候对我们还真的会出现很大的帮助。不过关于Docker的概念性的东西并不多，大多还是需要去手动实践的。
 

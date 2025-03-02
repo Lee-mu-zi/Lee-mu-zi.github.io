@@ -32,9 +32,24 @@ export default sidebar({
       prefix: "docker/",
       children: "structure",
     },
+    {
+      text: "Git",
+      icon: "/assets/tools/git.svg",
+      prefix: "git/",
+      children: "structure",
+    },
   ],
 
-  "/notes/": "structure",
+  "/notes/": [
+    {
+      text: "数据结构",
+      icon: "/assets/notes/structure.svg",
+      prefix: "structure/",
+      link: "structure/",
+      children: "structure",
+      collapsible: true,
+    },
+  ],
 
   "/author/": [
     {
