@@ -3,6 +3,7 @@ title: 初步计划
 # icon: plus
 cover: /assets/images/cover1.jpg
 order: 1
+editLink: false
 ---
 
 # 介绍页

@@ -3,6 +3,7 @@ title: Git总结
 # icon: plus
 cover: /assets/tools/git.svg
 order: 1
+editLink: false
 ---
 
 ## **1. 引言**

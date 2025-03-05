@@ -4,6 +4,7 @@ index: false
 # icon: user
 cover: /assets/covers/introduceSelf.png
 # date: 2022-01-09
+editLink: false
 category:
   - 作者
   - 自我介绍
@@ -34,7 +35,6 @@ category:
 “逆水行舟，不进则退” 自己也是不希望以后的人生毫无看点。
 
 ## 做个简单的MBTI十六性格测试
-
-![MBTI测试](/assets/author/mbti.png)
+![MBTI测试](http://cdn.leemuzi.com/weblog/mbti.png)
 
 <!-- <Catalog /> -->

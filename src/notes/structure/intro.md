@@ -1,10 +1,10 @@
 ---
 # 这是文章的标题
-title: 初识数据结构
+title: 第一章 初识数据结构
 # 你可以自定义封面图片
 # cover: /assets/images/cover1.jpg
 # 这是页面的图标
-icon: /assets/notes/structure/chushi/chushi.svg
+# icon: /assets/notes/structure/chushi/chushi.svg
 # 这是侧边栏的顺序
 order: 1
 # 设置作者
@@ -26,14 +26,17 @@ category:
 # footer: 这是测试显示的页脚
 # 你可以自定义版权信息
 # copyright: 无版权
+editLink: false
 ---
 
 <br>
 
 
-<img src="/assets/jiyu.png" style="zoom:10%;" />作者寄语：
+<img src="http://cdn.leemuzi.com/weblog/jiyu.png" style="zoom:10%;" />作者寄语：
 
-在这个篇幅中主要是复习一些概念性的文字
+数据结构对于计算机专业的学生是必不可少的一门科目，也是一门不容易学好的学科，或多或少大家应该都被其折磨过。我个人认为学习数据结构是类似于养成类型的游戏的，是一个渐进的过程，需要时间和耐心，并不断的实践和复习，所以想速成基本是不太可能的。
+
+数据结构和算法是有着密切联系的，所以如果有足够的耐心，推荐去<a href="https://leetcode.cn/">leetcode</a>或<a href="https://www.nowcoder.com/">牛客网</a>刷一些算法题，如果没什么计划可以选择根据<a href="https://leetcode.cn/circle/discuss/RvFUtj/">灵茶山艾府</a>的题单刷题。
 
 ## 基本概念和术语
 **数据：** 数据是描述客观事物的符号，是计算机中可以操作的对象，是能够被计算机识别，并输入给计算机处理的符号的集合。

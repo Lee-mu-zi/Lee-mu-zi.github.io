@@ -21,6 +21,7 @@ export default hopeTheme({
 
   // 导航栏
   navbar,
+  breadcrumb: false,
 
   // 侧边栏
   sidebar,

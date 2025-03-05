@@ -7,13 +7,13 @@ export default navbar([
   {
     text: '书读百遍',
     icon: 'book',
-    link: '/notes/',
+    link: '/notes/structure/intro.html',
   },
 
   {
     text: '开发工具',
     icon: 'tools',
-    link: '/tools/',
+    link: '/tools/docker/docker-intro.html',
   },
 
   {

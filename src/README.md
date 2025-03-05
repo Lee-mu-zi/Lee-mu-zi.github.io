@@ -10,7 +10,7 @@ heroImage: /logo.svg
 # heroText: " "
 # tagline: 千里之行，始于足下
 heroFullScreen: false
-
+editLink: false
 
 features:
   - title: 关于网站
