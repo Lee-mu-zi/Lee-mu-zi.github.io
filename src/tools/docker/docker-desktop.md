@@ -85,6 +85,7 @@ editLink: false
 <img src="/assets/tools/docker-desktop/Snipaste_2025-03-01_21-36-11.png" style="zoom:100%">
 ### 运行MySQL容器
 使用以下命令能够启动一个MySQL容器
+
 ```bash
 docker run -d \
   --name mysql_container \
@@ -92,6 +93,7 @@ docker run -d \
   -p 3306:3306 \
   mysql
 ```
+
 参数说明
 - `-d`：以后台模式运行容器。
 
