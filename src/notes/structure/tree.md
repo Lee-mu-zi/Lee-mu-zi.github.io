@@ -1,0 +1,140 @@
+---
+# 这是文章的标题
+title: 树和二叉树
+# 你可以自定义封面图片
+# cover: /assets/images/cover1.jpg
+# 这是页面的图标
+# icon: http://cdn.leemuzi.com/weblog/linear-list.svg
+# 这是侧边栏的顺序
+order: 3
+# 设置作者
+author: 李木子
+# 设置写作时间
+# date: 2020-01-01
+# 一个页面可以有多个分类
+category:
+  - 数据结构
+
+# 一个页面可以有多个标签
+tag:
+  - 树
+  - 二叉树
+# 此页面会在文章列表置顶
+# sticky: true
+# 此页面会出现在星标文章中
+# star: true
+# 你可以自定义页脚
+# footer: 这是测试显示的页脚
+# 你可以自定义版权信息
+# copyright: 无版权
+---
+<br>
+
+<img src="http://cdn.leemuzi.com/weblog/jiyu.png" style="zoom:10%;" />作者寄语：
+
+树型结构是一种重要的非线性数据结构。其中以树和二叉树最为常用。树是以分支关系定义的层次结构，是一种一对多的数据结构。
+
+## 树的定义和基本术语
+
+### 定义
+
+树（Tree）是n（n≥0）个结点的有限集。在任意一个非空树中：（1）**有且仅有一个**特定的根（Root）结点；（2）当n>1的时候，其余结点可分为m（m≥0）个**互不相交**的有限集T~1~，T~2~...T~n~，其中每一个集合本身又是一棵树，并且称为根的子树（SubTree）。
+
+![](http://cdn.leemuzi.com/weblog/image-20250317221226201.png)
+
+### 结点的分类
+
+树的结点包含一个数据元素及若干指向其子树的分支。结点拥有的**子树数**称为结点的度（Degree）。度为0的结点称为**叶子节点（Leaf）或终端结点**；度不为0的结点称为**非终端结点或分支结点**。除根节点外，分支结点也称为内部节点。树的度就是**树内各结点的度的最大值**。
+
+![](http://cdn.leemuzi.com/weblog/image-20250317224035805.png)
+
+### 结点间的关系
+
+结点的子树的根节点称为该结点的**孩子结点**（Child），该节点称为孩子结点的**双亲结点**（Parent），同一个双亲结点之间互称为**兄弟结点**（Sibling），结点的**祖先**是从根节点到该节点所经分支上的所有结点，以某节点为根的子树中的任一结点都成为该节点的**子孙**。
+
+![](http://cdn.leemuzi.com/weblog/image-20250318221905846.png)
+
+### 结点的层次
+
+结点的**层次**（Level）从根定义开始，根为第一层，根的孩子为第二层。若某节点在第L层，则其子树是在第L+1层。其双亲在同一层的结点互称为堂兄弟，树中结点的**最大层次称为树的深度或高度。**
+
+![](http://cdn.leemuzi.com/weblog/image-20250318224849473.png)
+
+如果将树中结点的各子树看成从左至右是有次序的，不能互换的，则称该树是**有序树**，否则称为无序树。上图就是一个有序树。
+
+**森林（Forest）** 是m（m≥0）棵不相交的树的集合。对树中每个结点而言，其子树的集合即为森林。
+
+![](http://cdn.leemuzi.com/weblog/image-20250318230715975.png)
+
+### 树的抽象数据类型
+
+```java
+ADT Tree {
+    数据对象：
+        D = {N, E}，其中 N 是节点的集合，E 是边的集合。
+
+    数据关系：
+        R = {<parent, child> | parent, child ∈ N}，表示父子关系。
+
+    基本操作：
+        InitTree(&T)：初始化树。
+        DestroyTree(&T)：销毁树。
+        TreeEmpty(T)：判断树是否为空。
+        Root(T)：返回树的根节点。
+        Parent(T, node)：返回节点的父节点。
+        FirstChild(T, node)：返回节点的第一个子节点。
+        NextSibling(T, node)：返回节点的下一个兄弟节点。
+        InsertChild(&T, parent, node)：插入子节点。
+        DeleteChild(&T, parent, i)：删除子节点。
+        PreOrderTraverse(T, visit)：前序遍历。
+        InOrderTraverse(T, visit)：中序遍历。
+        PostOrderTraverse(T, visit)：后序遍历。
+        LevelOrderTraverse(T, visit)：层次遍历。
+        TreeDepth(T)：返回树的深度。
+        TreeSize(T)：返回树的节点总数。
+        IsLeaf(T, node)：判断节点是否为叶子节点。
+}
+```
+
+### 树的链式存储结构
+
+双亲表示法：假设以一组连续空间存储树的结点，同时在每个结点中，附设一个指示器指示其双亲结点在数组中的位置。
+
+孩子表示法：把每个结点的孩子结点排列起来，以单链表作为存储结构，则n个结点有n个孩子链表，如果是叶子节点则此单链表为空。然后n个头指针又组成一个线性表，采用顺序存储结构，存放在一维数组中。
+
+孩子兄弟表示法：任意一棵树，它的结点的第一个孩子如果存在就是唯一的，它的右兄弟如果存在也是唯一的，因此可以设置两个指针分别指向该节点的第一个孩子和此节点的右兄弟。
+
+## 二叉树
+
+### 定义
+
+二叉树（Binary Tree）是一种比较特殊的树形结构，它的特点是每个结点至多只有两棵子树（即二叉树中不存在度大于2的结点），并且，二叉树的子树是有左右之分的，其次序不能任意颠倒。
+
+![](http://cdn.leemuzi.com/weblog/image-20250319223309799.png)
+
+### 二叉树的抽象数据类型
+
+```java
+ADT BinaryTree {
+    数据：
+        节点集合：{node1, node2, ..., nodeN}
+        根节点：root
+
+    操作：
+        initTree(): 初始化二叉树
+        isEmpty(): 判断二叉树是否为空
+        getRoot(): 获取根节点
+        getLeft(node): 获取左子节点
+        getRight(node): 获取右子节点
+        insertLeft(node, value): 插入左子节点
+        insertRight(node, value): 插入右子节点
+        deleteLeft(node): 删除左子树
+        deleteRight(node): 删除右子树
+        traverse(mode): 遍历二叉树
+}
+```
+
+
+
+
+
