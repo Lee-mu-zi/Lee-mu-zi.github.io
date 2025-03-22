@@ -13,7 +13,7 @@ export default navbar([
   {
     text: '开发工具',
     icon: 'tools',
-    link: '/tools/docker/docker-intro.html',
+    link: '/tools/docker/docker.html',
   },
 
   {
