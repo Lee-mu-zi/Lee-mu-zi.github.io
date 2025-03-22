@@ -287,3 +287,37 @@ public interface MybatisMapper {
 
 ![](http://cdn.leemuzi.com/weblog/image-20250322183216486.png)
 
+## XML映射器的核心
+
+### select
+
+查询语句是 MyBatis 中最常用的元素之一。 MyBatis 的基本原则之一是：在每个插入、更新或删除操作之间，通常会执行多个查询操作。因此，MyBatis 在查询和结果映射做了相当多的改进。一个简单查询的 select 元素是非常简单的。比如：
+
+```xml
+<select id="getUser" parameterType="int" resultType="com.leemuzi.mybatis.domain.User">
+	select * from mybatis_user where id = #{id}
+</select>
+```
+
+这个语句名为 getUser，只接受一个 int（或 Integer）类型的参数，并返回一个 User类型的对象
+
+参数符号是`#{id}`，这就告诉 MyBatis 创建一个预处理语句（PreparedStatement）参数，在 JDBC 中，这样的一个参数在 SQL 中会由一个“?”来标识，并被传递到一个新的预处理语句中。
+
+`#{}`是用于参数占位的语法，主要作用是将参数安全地嵌入 SQL 语句，防止 SQL 注入，并自动处理类型转换和参数设置。
+
+select元素允许配置很多属性来配置每条语句的行为细节。
+
+```xml
+<select
+  id="selectPerson" # 命名空间的唯一标识符
+  parameterType="int" # 定义传入SQL语句的参数类型
+  resultType="hashmap" # 定义 SQL 查询结果的返回类型。
+  resultMap="personResultMap" # 定义结果集的映射关系。与 resultType 二选一使用。
+  flushCache="false" # 是否清空本地缓存和二级缓存。
+  useCache="true" # 是否将查询结果存入二级缓存。
+  timeout="10" # 设置 SQL 语句的执行超时时间（单位：秒）。
+  fetchSize="256" # 设置每次从数据库获取的记录数。
+  statementType="PREPARED" # 定义 SQL 语句的执行类型。STATEMENT：普通语句。PREPARED（默认）：预处理语句。CALLABLE：调用存储过程。
+  resultSetType="FORWARD_ONLY"> # 设置结果集的类型。
+```
+
