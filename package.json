@@ -16,5 +16,15 @@
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.19",
     "vuepress-theme-hope": "2.0.0-rc.66"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lee-mu-zi/Lee-mu-zi.github.io.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Lee-mu-zi/Lee-mu-zi.github.io/issues"
+  },
+  "homepage": "https://github.com/Lee-mu-zi/Lee-mu-zi.github.io#readme"
 }

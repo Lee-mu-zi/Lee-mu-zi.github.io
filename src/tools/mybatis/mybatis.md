@@ -289,23 +289,9 @@ public interface MybatisMapper {
 
 ## XML映射器的核心
 
-### select
+### Select
 
-查询语句是 MyBatis 中最常用的元素之一。 MyBatis 的基本原则之一是：在每个插入、更新或删除操作之间，通常会执行多个查询操作。因此，MyBatis 在查询和结果映射做了相当多的改进。一个简单查询的 select 元素是非常简单的。比如：
-
-```xml
-<select id="getUser" parameterType="int" resultType="com.leemuzi.mybatis.domain.User">
-	select * from mybatis_user where id = #{id}
-</select>
-```
-
-这个语句名为 getUser，只接受一个 int（或 Integer）类型的参数，并返回一个 User类型的对象
-
-参数符号是`#{id}`，这就告诉 MyBatis 创建一个预处理语句（PreparedStatement）参数，在 JDBC 中，这样的一个参数在 SQL 中会由一个“?”来标识，并被传递到一个新的预处理语句中。
-
-`#{}`是用于参数占位的语法，主要作用是将参数安全地嵌入 SQL 语句，防止 SQL 注入，并自动处理类型转换和参数设置。
-
-select元素允许配置很多属性来配置每条语句的行为细节。
+在 MyBatis 中，`<select>` 标签用于定义查询操作的 SQL 语句，是 Mapper XML 文件中最常用的标签之一。它支持多种查询方式，包括单表查询、关联查询、动态 SQL 等。
 
 ```xml
 <select
@@ -321,21 +307,211 @@ select元素允许配置很多属性来配置每条语句的行为细节。
   resultSetType="FORWARD_ONLY"> # 设置结果集的类型。
 ```
 
-### insert
+**示例1：查询单条记录（返回 Java Bean）**
 
-`<insert>` 标签用于定义插入操作的 SQL 语句，用于将数据插入到数据库中。
+```xml
+<select id="getUserById" resultType="com.example.User">
+    SELECT * FROM user WHERE id = #{id}
+</select>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  User getUserById(int id);
+  ```
+
+**示例2：查询多条记录（返回 List）**
+
+```xml
+<select id="getAllUsers" resultType="com.example.User">
+    SELECT * FROM user
+</select>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  List<User> getAllUsers();
+  ```
+
+**示例3：多个参数（使用 `@Param` 注解）**
+
+```xml
+<select id="getUsersByNameAndAge" resultType="User">
+    SELECT * FROM user 
+    WHERE name = #{name} AND age = #{age}
+</select>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  List<User> getUsersByNameAndAge(
+      @Param("name") String name,
+      @Param("age") int age
+  );
+  ```
+
+**示例4：使用 Map 传递参数**
+
+```xml
+<select id="getUsersByMap" resultType="User">
+    SELECT * FROM user 
+    WHERE name = #{name} AND age = #{age}
+</select>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  List<User> getUsersByMap(Map<String, Object> params);
+  ```
+
+**示例5：动态 SQL**
+
+```xml
+<select id="getUsersByCondition" resultType="User">
+    SELECT * FROM user
+    <where>
+        <if test="name != null">
+            AND name = #{name}
+        </if>
+        <if test="age != null">
+            AND age = #{age}
+        </if>
+    </where>
+</select>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  List<User> selectUsersByCondition(Map<String, Object> params);
+  ```
+
+**示例6：分页查询（结合 LIMIT 或 PageHelper）**
+
+```xml
+<select id="selectUsersByPage" parameterType="map" resultType="User">
+    SELECT id, name, age FROM user
+    LIMIT #{offset}, #{pageSize}
+</select>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  List<User> selectUsersByPage(@Param("offset") int offset, @Param("pageSize") int pageSize);
+  ```
+
+
+
+
+
+
+
+### Insert
+
+在 MyBatis 中，`<insert>` 标签用于定义插入操作的 SQL 语句。它是 MyBatis 映射文件（Mapper XML）中的核心标签之一，用于将数据插入到数据库中。
 
 ```xml
 <insert
   id="insertAuthor"
   parameterType="domain.blog.Author"
-  flushCache="true"
+  flushCache="true" 
   statementType="PREPARED"
-  keyProperty=""
-  keyColumn=""
-  useGeneratedKeys=""
+  keyProperty="" # 将生成的主键值赋值给参数的哪个属性
+  keyColumn="" # 数据库表中主键的列名（可选，默认根据表结构自动推断）。
+  useGeneratedKeys="" # 是否使用数据库生成的主键（如自增 ID），默认为 false。
   timeout="20">
 ```
 
-示例：
+**示例1：插入基本类型参数**
+
+```xml
+<insert id="insertUser" parameterType="String">
+    INSERT INTO user (name) VALUES (#{name})
+</insert>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  void insertUser(String name);
+  ```
+
+**示例2：插入对象参数**
+
+```xml
+<insert id="insertUser" parameterType="User">
+    INSERT INTO user (name, age, email)
+    VALUES (#{name}, #{age}, #{email})
+</insert>
+```
+
+- 对应mapper接口方法
+
+  ```java
+  void insertUser(User user);
+  ```
+
+**示例3：使用自增主键**
+
+如果数据库表的主键是自增的，可以通过 `useGeneratedKeys` 和 `keyProperty` 获取生成的主键值并赋值给对象的属性。
+
+```xml
+<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO user (name, age, email)
+    VALUES (#{name}, #{age}, #{email})
+</insert>
+```
+
+- 执行插入操作后，生成的主键值会自动赋值给 `User` 对象的 `id` 属性。
+
+- 对应 Mapper 接口方法：
+
+  ```java
+  void insertUser(User user);
+  ```
+
+**示例4：插入 Map 参数**
+
+```xml
+<insert id="insertUser" parameterType="map">
+    INSERT INTO user (name, age, email)
+    VALUES (#{name}, #{age}, #{email})
+</insert>
+```
+
+- 对应 Mapper 接口方法：
+
+  ```java
+  void insertUser(Map<String, Object> map);
+  ```
+
+**示例5：批量插入**
+
+MyBatis 支持通过 `foreach` 标签实现批量插入。
+
+```xml
+<insert id="insertUsers" parameterType="list">
+    INSERT INTO user (name, age, email) VALUES
+    <foreach collection="list" item="user" separator=",">
+        (#{user.name}, #{user.age}, #{user.email})
+    </foreach>
+</insert>
+```
+
+- 对应 Mapper 接口方法：
+
+  ```java
+  void insertUsers(List<User> users);
+  ```
+
+
+
+
+
+
 
