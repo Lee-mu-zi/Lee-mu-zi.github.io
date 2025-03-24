@@ -321,3 +321,21 @@ select元素允许配置很多属性来配置每条语句的行为细节。
   resultSetType="FORWARD_ONLY"> # 设置结果集的类型。
 ```
 
+### insert
+
+`<insert>` 标签用于定义插入操作的 SQL 语句，用于将数据插入到数据库中。
+
+```xml
+<insert
+  id="insertAuthor"
+  parameterType="domain.blog.Author"
+  flushCache="true"
+  statementType="PREPARED"
+  keyProperty=""
+  keyColumn=""
+  useGeneratedKeys=""
+  timeout="20">
+```
+
+示例：
+
