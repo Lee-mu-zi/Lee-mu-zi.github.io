@@ -26,6 +26,7 @@ category:
 # footer: 这是测试显示的页脚
 # 你可以自定义版权信息
 # copyright: 无版权
+headerDepth: 3
 ---
 
 <br>
@@ -405,11 +406,154 @@ public interface MybatisMapper {
   List<User> selectUsersByPage(@Param("offset") int offset, @Param("pageSize") int pageSize);
   ```
 
+⭐**示例7：关联查询（一对多、多对一）**
 
+假设用户(User)和订单(Order)两个实体，目的是获取用户信息和用户的所有订单信息
 
+```java
+// User.java
+public class User {
+    private Integer id;
+    private String name;
+    private List<Order> orders; // 一对多关系
+    
+    // getters and setters
+}
 
+// Order.java
+public class Order {
+    private Integer id;
+    private String orderNo;
+    private Integer userId;
+    
+    // getters and setters
+}
+```
 
+- **方法1：`JOIN` + `resultMap`**
 
+  ```xml
+  <resultMap id="userWithOrdersMap" type="User">
+      <!-- 映射User的基本属性 -->
+      <id property="id" column="user_id"/>
+      <result property="name" column="user_name"/>
+      <!-- 映射orders集合 -->
+      <collection property="orders" ofType="Order">
+          <id property="id" column="order_id"/>
+          <result property="orderNo" column="order_no"/>
+          <result property="userId" column="user_id"/>
+      </collection>
+  </resultMap>
+  
+  <select id="selectUserWithOrders" resultMap="userWithOrdersMap">
+      SELECT 
+          u.id as user_id,
+          u.name as user_name,
+          o.id as order_id,
+          o.order_no as order_no,
+          o.user_id as user_id
+      FROM 
+          user u
+      LEFT JOIN 
+          orders o ON u.id = o.user_id
+      WHERE 
+          u.id = #{userId}
+  </select>
+  ```
+
+  - 对应mapper接口方法
+
+    ```java
+    public interface UserMapper {
+        User selectUserWithOrders(Integer userId);
+    }
+    ```
+
+- **方法2：嵌套查询（`<association>` 和 `<collection>`）**
+
+  ```xml
+  <resultMap id="userWithOrdersMap" type="User">
+      <id property="id" column="id" />
+      <result property="name" column="name" />
+      <collection property="orders" select="selectOrdersByUserId" column="id" />
+  </resultMap>
+  
+  <select id="selectUserWithOrders" resultMap="userWithOrdersMap">
+      SELECT id, name FROM user WHERE id = #{userId}
+  </select>
+  
+  <select id="selectOrdersByUserId" resultType="Order">
+      SELECT id, name FROM orders WHERE user_id = #{userId}
+  </select>
+  ```
+
+  - 对应mapper接口方法
+
+    ```xml
+    User selectUserWithOrders(int userId);
+    List<Order> selectOrdersByUserId(int userId);
+    ```
+
+- **多对一关联**
+
+  - 实体类
+
+    ```java
+    // Order.java
+    public class Order {
+        private Integer id;
+        private String orderNo;
+        private User user;  // 多对一关联
+        
+        // getters and setters
+    }
+    
+    // User.java
+    public class User {
+        private Integer id;
+        private String name;
+        
+        // getters and setters
+    }
+    ```
+
+  - Mapper XML 配置
+
+    ```xml
+    <resultMap id="orderWithUserMap" type="Order">
+        <!-- 映射Order的基本属性 -->
+        <id property="id" column="id"/>
+        <result property="orderNo" column="order_no"/>  
+        <!-- 多对一关联映射 -->
+        <association property="user" javaType="User">
+            <id property="id" column="user_id"/>
+            <result property="name" column="user_name"/>
+        </association>
+    </resultMap>
+    
+    <select id="selectOrderWithUser" resultMap="orderWithUserMap">
+        SELECT 
+            o.id,
+            o.order_no,
+            o.user_id,
+            u.id as user_id,
+            u.name as user_name
+        FROM 
+            orders o
+        LEFT JOIN 
+            user u ON o.user_id = u.id
+        WHERE 
+            o.id = #{orderId}
+    </select>
+    ```
+
+  -  Mapper 接口
+
+    ```java
+    public interface OrderMapper {
+        Order selectOrderWithUser(Integer orderId);
+    }
+    ```
 
 ### Insert
 
@@ -509,9 +653,274 @@ MyBatis 支持通过 `foreach` 标签实现批量插入。
   void insertUsers(List<User> users);
   ```
 
+### Update
 
+`<update>` 标签是 MyBatis 中用于定义更新操作的 XML 元素，它允许你执行数据库记录的修改操作。
 
+```xml
+<update
+  id="updateAuthor"
+  parameterType="domain.blog.Author" # 传入参数的类型（可选）
+  flushCache="true" # 是否清空缓存，默认为 true
+  statementType="PREPARED" # 指定语句类型，可选 STATEMENT、PREPARED（默认）或 CALLABLE
+  timeout="20"> # 设置 SQL 执行的超时时间（单位：秒）
+```
 
+**示例1：基本更新操作**
 
+```xml
+<update id="updateUserName" parameterType="map">
+    UPDATE users
+    SET name = #{newName}
+    WHERE id = #{userId}
+</update>
+```
 
+- 对应 Mapper 接口：
 
+  ```java
+  int updateUserName(@Param("userId") int userId, @Param("newName") String newName);
+  ```
+
+**示例2：使用对象参数**
+
+```xml
+<update id="updateUser" parameterType="User">
+    UPDATE users
+    SET name = #{name}, age = #{age}, email = #{email}
+    WHERE id = #{id}
+</update>
+```
+
+- 对应 Mapper 接口：
+
+  ```java
+  int updateUser(User user);
+  ```
+
+**示例3：动态更新（使用 `<if>` 和 `<set>`）**
+
+```xml
+<update id="updateUserSelective" parameterType="User">
+    UPDATE users
+    <set>
+        <if test="name != null">name = #{name},</if>
+        <if test="age != null">age = #{age},</if>
+        <if test="email != null">email = #{email},</if>
+    </set>
+    WHERE id = #{id}
+</update>
+```
+
+**示例4：批量更新**
+
+```xml
+<update id="batchUpdateUsers">
+    UPDATE users
+    SET status = #{status}
+    WHERE id IN
+    <foreach collection="userIds" item="id" open="(" separator="," close=")">
+        #{id}
+    </foreach>
+</update>
+```
+
+- 对应 Mapper 接口：
+
+  ```java
+  int batchUpdateUsers(@Param("userIds") List<Integer> userIds, @Param("status") int status);
+  ```
+
+### Delete
+
+`<delete>` 标签是 MyBatis 中用于定义删除操作的 XML 元素，它允许你执行数据库记录的删除操作。
+
+```xml
+<delete
+  id="deleteAuthor"
+  parameterType="domain.blog.Author"
+  flushCache="true"
+  statementType="PREPARED"
+  timeout="20">
+```
+
+**示例1：基本删除**
+
+```xml
+<delete id="deleteUserById" parameterType="int">
+    DELETE FROM users
+    WHERE id = #{userId}
+</delete>
+```
+
+- 对应 Mapper 接口：
+
+  ```java
+  int deleteUserById(int userId);
+  ```
+
+示例2：多条件删除
+
+```xml
+<delete id="deleteUsersByCondition" parameterType="map">
+    DELETE FROM users
+    WHERE status = #{status}
+    AND create_time &lt; #{expireDate}
+</delete>
+```
+
+- 对应 Mapper 接口：
+
+  ```java
+  int deleteUsersByCondition(@Param("status") int status, 
+                            @Param("expireDate") Date expireDate);
+  ```
+
+**示例3：批量删除**
+
+```xml
+<delete id="batchDeleteUsers">
+    DELETE FROM users
+    WHERE id IN
+    <foreach collection="userIds" item="id" open="(" separator="," close=")">
+        #{id}
+    </foreach>
+</delete>
+```
+
+- 对应 Mapper 接口：
+
+  ```java
+  int batchDeleteUsers(@Param("userIds") List<Integer> userIds);
+  ```
+
+**示例4：动态条件删除**
+
+```xml
+<delete id="deleteByDynamicCondition" parameterType="map">
+    DELETE FROM users
+    <where>
+        <if test="ids != null and ids.size() > 0">
+            id IN
+            <foreach collection="ids" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+        <if test="minAge != null">
+            AND age &gt;= #{minAge}
+        </if>
+    </where>
+</delete>
+```
+
+**示例5：逻辑删除代替物理删除**
+
+实际项目中，推荐使用逻辑删除而非物理删除：
+
+```xml
+<update id="logicalDeleteUser">
+    UPDATE users
+    SET is_deleted = 1,
+        delete_time = NOW()
+    WHERE id = #{userId}
+</update>
+```
+
+### Sql
+
+`<sql>` 标签是 MyBatis 中用于定义可重用 SQL 片段的 XML 元素，它可以显著提高 SQL 语句的可维护性和复用性。
+
+**示例1：基本列定义复用**
+
+```xml
+<!-- 定义列名片段 -->
+<sql id="userColumns">
+    id, username, email, create_time
+</sql>
+
+<!-- 在查询中引用 -->
+<select id="selectAllUsers" resultType="User">
+    SELECT 
+    <include refid="userColumns"/>
+    FROM users
+</select>
+
+<select id="selectUserById" resultType="User">
+    SELECT 
+    <include refid="userColumns"/>
+    FROM users
+    WHERE id = #{id}
+</select>
+```
+
+示例2： 带条件的 SQL 片段
+
+```xml
+<sql id="userWhereClause">
+    <where>
+        <if test="username != null">
+            AND username = #{username}
+        </if>
+        <if test="email != null">
+            AND email = #{email}
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+    </where>
+</sql>
+
+<select id="selectUsersByCondition" parameterType="map" resultType="User">
+    SELECT * FROM users
+    <include refid="userWhereClause"/>
+</select>
+```
+
+示例3：多片段组合
+
+```xml
+<sql id="userBaseColumns">
+    id, username
+</sql>
+
+<sql id="userDetailColumns">
+    email, phone, address
+</sql>
+
+<select id="selectUserDetails" resultType="User">
+    SELECT
+    <include refid="userBaseColumns"/>,
+    <include refid="userDetailColumns"/>
+    FROM users
+</select>
+```
+
+示例4.：带参数的 SQL 片段
+
+```xml
+<sql id="orderByClause">
+    ORDER BY 
+    <choose>
+        <when test="orderBy != null">
+            ${orderBy}
+        </when>
+        <otherwise>
+            create_time DESC
+        </otherwise>
+    </choose>
+</sql>
+
+<select id="selectUsers" parameterType="map" resultType="User">
+    SELECT * FROM users
+    <include refid="orderByClause">
+        <property name="orderBy" value="${orderBy}"/>
+    </include>
+</select>
+```
+
+## 动态 SQL
+
+动态 SQL 是 MyBatis 最强大的特性之一，它允许你根据条件动态构建 SQL 语句，避免了在 Java 代码中拼接 SQL 的繁琐和安全隐患。
