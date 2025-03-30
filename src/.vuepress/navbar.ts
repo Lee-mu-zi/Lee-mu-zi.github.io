@@ -5,70 +5,94 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
 
   {
-    text: '书读百遍',
-    icon: 'book',
-    link: '/notes/structure/intro.html',
+    text: '💻 编程语言',
+    children: [
+      {
+        text: 'Java生态',
+        children: [
+          { text: 'MyBatis', icon: 'http://cdn.leemuzi.com/weblog/mybatis.svg',  link: '/programming/java/mybatis/mybatis'},
+        ]
+      },
+      {
+        text: '⏳ 待更新...',
+        children: [
+          { text: '', icon: '',  link: ''},
+        ]
+      },
+    ]
   },
 
   {
-    text: '开发工具',
-    icon: 'tools',
-    link: '/tools/docker/docker.html',
+    text: '🧮 算法攻坚',
+    children: [
+      {
+        text: '算法基础',
+        children: [
+          { text: '数据结构', icon: '/assets/structure.svg',  link: '/algorithm/base/intro'},
+        ]
+      },
+      {
+        text: '⏳ 待更新...',
+        children: [
+          { text: '', icon: '',  link: ''},
+        ]
+      },
+    ]
   },
 
   {
-    text: "关于作者",
-    icon: "user",
-    link: "/author/",
+    text: '📊 数据库',
+    children: [
+      {
+        text: '基础',
+        children: [
+          { text: '数据库基础', icon: '/assets/mysqlico.svg',  link: '/database/base/base'},
+        ]
+      },
+      {
+        text: 'SQL',
+        children: [
+          { text: 'MySQL', icon: 'http://cdn.leemuzi.com/weblog/MySQL.svg',  link: '/database/mysql/sql-intro'},
+        ]
+      },
+      // {
+      //   text: 'NoSQL',
+      //   children: [
+      //     { text: 'MySQL', icon: '/assets/structure.svg',  link: '/algorithm/base/intro'},
+      //   ]
+      // },
+      {
+        text: '⏳ 待更新...',
+        children: [
+          { text: '', icon: '',  link: ''},
+        ]
+      },
+    ]
   },
 
-  // "/demo/",
+  {
+    text: '⚙️ 开发效能',
+    children: [
+      {
+        text: 'DevOps流水线',
+        children: [
+          { text: 'Docker', icon: '/assets/Docker.svg',  link: '/efficiency/devops/docker/docker'},
+        ]
+      },
+      {
+        text: '效能工具',
+        children: [
+          { text: 'Git', icon: '/assets/git.svg',  link: '/efficiency/tools/git/git'},
+        ]
+      },
+      {
+        text: '⏳ 待更新...',
+        children: [
+          { text: '', icon: '',  link: ''},
+        ]
+      },
+    ]
+  },
 
-  // {
-  //   text: "博文",
-  //   icon: "pen-to-square",
-  //   prefix: "/posts/",
-  //   children: [
-  //     {
-  //       text: "苹果",
-  //       icon: "pen-to-square",
-  //       prefix: "apple/",
-  //       children: [
-  //         { text: "苹果1", icon: "pen-to-square", link: "1" },
-  //         { text: "苹果2", icon: "pen-to-square", link: "2" },
-  //         "3",
-  //         "4",
-  //       ],
-  //     },
-  //     {
-  //       text: "香蕉",
-  //       icon: "pen-to-square",
-  //       prefix: "banana/",
-  //       children: [
-  //         {
-  //           text: "香蕉 1",
-  //           icon: "pen-to-square",
-  //           link: "1",
-  //         },
-  //         {
-  //           text: "香蕉 2",
-  //           icon: "pen-to-square",
-  //           link: "2",
-  //         },
-  //         "3",
-  //         "4",
-  //       ],
-  //     },
-  //     { text: "樱桃", icon: "pen-to-square", link: "cherry" },
-  //     { text: "火龙果", icon: "pen-to-square", link: "dragonfruit" },
-  //     "tomato",
-  //     "strawberry",
-  //   ],
-  // },
-
-  // {
-  //   text: "V2 文档",
-  //   icon: "book",
-  //   link: "https://theme-hope.vuejs.press/zh/",
-  // },
+  
 ]);

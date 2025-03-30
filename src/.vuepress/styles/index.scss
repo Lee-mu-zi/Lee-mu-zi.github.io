@@ -1,6 +1,54 @@
 // place your custom styles here
-body {
-    @media (min-width: 1440px) {
-        font-size: 16px;
-    }
+.vp-hero-info {
+  height: 420px;
+}
+
+.vp-project-image {
+  height: 25px;
+  width: 25px;
+}
+
+.vp-card {
+  margin-left: 20px;
+  width: 330px;
+}
+
+@media (min-width: 1440px) {
+  body {
+    font-size: 16px !important;
+  }
+}
+
+.search-pro-placeholder {
+  font-family: "LXGW WenKai Screen", PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei, sans-serif !important;
+}
+
+.vp-navbar .auto-link {
+  padding: 0 0.45rem;
+}
+
+.vp-nav-links {
+  font-size: 0.980rem;
+}
+
+@media (min-width: 1440px) {
+  body {
+    font-size: 18px !important;
+  }
+}
+
+.vp-sidebar-header {
+  font-size: 1.3em;
+}
+
+.vp-sidebar-link {
+  font-size: 1.1em;
+}
+
+.vp-toc-link.level2 {
+  font-size: 16px;
+}
+
+.vp-toc-link.level3 {
+  font-size: 14px;
 }

@@ -1,4 +1,12 @@
-$sidebar-width: 20rem;
-$sidebar-mobile-width: 16rem;
-$vp-font: 'Georgia, -apple-system, "Nimbus Roman No9 L", "PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft Yahei", "WenQuanYi Micro Hei", sans-serif';
-$vp-font-heading: 'Georgia, -apple-system, "Nimbus Roman No9 L", "PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft Yahei", "WenQuanYi Micro Hei", sans-serif';
+// you can change colors here
+$theme-color: #3eaf7c;
+
+$sidebar-width: 18rem !default;
+
+$navbar-height: 3.75rem !default;
+$navbar-horizontal-padding: 200px !default;
+$navbar-vertical-padding: 200px !default;
+
+$vp-font: '"楷体", Georgia, -apple-system, "Nimbus Roman No9 L", "PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft Yahei", "WenQuanYi Micro Hei", sans-serif';
+$vp-font-heading: '"楷体", Georgia, -apple-system, "Nimbus Roman No9 L", "PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft Yahei", "WenQuanYi Micro Hei", sans-serif';
+$vp-font-mono: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace' !default;
