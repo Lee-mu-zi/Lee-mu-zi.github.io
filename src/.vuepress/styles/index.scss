@@ -1,3 +1,4 @@
+
 // place your custom styles here
 .vp-hero-info {
   height: 420px;
@@ -51,4 +52,15 @@
 
 .vp-toc-link.level3 {
   font-size: 14px;
+}
+
+
+.transparent-navbar .vp-dropdown-wrapper .vp-dropdown {
+  background: rgb(255 255 255 / 70%) !important;
+}
+
+strong, b {
+  font-weight: 900;
+  text-shadow: 0.4px 0 0 currentColor; /* 微妙的阴影增强效果 */
+  color: #000000; /* 可选：改变颜色使其更明显 */
 }

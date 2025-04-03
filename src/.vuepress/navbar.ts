@@ -10,7 +10,7 @@ export default navbar([
       {
         text: 'Java生态',
         children: [
-          { text: 'MyBatis', icon: 'http://cdn.leemuzi.com/weblog/mybatis.svg',  link: '/programming/java/mybatis/mybatis'},
+          { text: 'MyBatis', icon: 'http://cdn.leemuzi.com/weblog/mybatis.svg',  link: '/programming/java/mybatis/mapper'},
         ]
       },
       {

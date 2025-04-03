@@ -38,6 +38,8 @@ editLink: false
 
 数据结构和算法是有着密切联系的，所以如果有足够的耐心，推荐去<a href="https://leetcode.cn/">leetcode</a>或<a href="https://www.nowcoder.com/">牛客网</a>刷一些算法题，如果没什么计划可以选择根据<a href="https://leetcode.cn/circle/discuss/RvFUtj/">灵茶山艾府</a>的题单刷题。
 
+<!-- more -->
+
 ## 基本概念和术语
 **数据：** 数据是描述客观事物的符号，是计算机中可以操作的对象，是能够被计算机识别，并输入给计算机处理的符号的集合。
 

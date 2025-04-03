@@ -15,7 +15,7 @@ export default hopeTheme({
 
   // logo: "/logo.png",
 
-  repo: "https://github.com/Lee-mu-zi/Lee-mu-zi.github.io",
+  // repo: "https://github.com/Lee-mu-zi/Lee-mu-zi.github.io",
 
   docsDir: "src",
 
@@ -55,6 +55,8 @@ export default hopeTheme({
     },
     articlePerPage: 6,
   },
+
+  darkmode: "disable",
 
   navbarLayout: {
     start: ["Brand"],

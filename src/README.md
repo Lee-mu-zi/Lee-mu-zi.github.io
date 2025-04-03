@@ -2,7 +2,7 @@
 home: true
 layout: BlogHome
 title: 主页
-heroText: 李木子
+heroText: 
 tagline: 
 bgImage: http://cdn.leemuzi.com/paper.png
 heroFullScreen: true
@@ -25,7 +25,7 @@ projects:
     link: https://leetcode.cn/discuss/post/3141566/ru-he-ke-xue-shua-ti-by-endlesscheng-q3yd/
 
   - icon: 
-    name: Electronics
+    name: ⏳ 待更新...
     desc: 
     link: 
 

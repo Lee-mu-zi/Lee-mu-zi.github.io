@@ -16,7 +16,7 @@ editLink: false
 
 <img src="http://cdn.leemuzi.com/weblog/jiyu.png" style="zoom:10%;" />作者寄语：
 
-
+<!-- more -->
 
 ## MySQL
 

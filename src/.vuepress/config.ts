@@ -1,9 +1,10 @@
 import { defineUserConfig } from "vuepress";
-import { hopeTheme } from "vuepress-theme-hope";
+import { viteBundler } from '@vuepress/bundler-vite'
 import theme from "./theme.js";
 
 export default defineUserConfig({
   base: "/",
+
 
   lang: "zh-CN",
   title: "Muzi Lee",
