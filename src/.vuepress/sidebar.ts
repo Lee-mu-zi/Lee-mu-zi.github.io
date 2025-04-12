@@ -5,12 +5,12 @@ export default sidebar({
 
   "/algorithm/base": "structure",
 
-  "/database/base":"structure",
-  "/database/mysql":"structure",
+  "/system-architecture/database":"structure",
 
   "/programming/java/mybatis":"structure",
 
   "/efficiency/devops/docker":"structure",
   "/efficiency/tools/git":"structure",
+
 
 });

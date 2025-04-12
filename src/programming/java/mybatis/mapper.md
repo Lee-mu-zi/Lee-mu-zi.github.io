@@ -1,6 +1,7 @@
 ---
 # 这是文章的标题
-title: XML映射器
+title: MyBatis XML映射器
+icon: http://cdn.leemuzi.com/XML.svg
 order: 1
 # 设置作者
 author: 李木子

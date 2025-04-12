@@ -41,18 +41,12 @@ export default navbar([
   },
 
   {
-    text: '📊 数据库',
+    text: '🧱系统架构',
     children: [
       {
-        text: '基础',
+        text: '数据库与存储',
         children: [
-          { text: '数据库基础', icon: '/assets/mysqlico.svg',  link: '/database/base/base'},
-        ]
-      },
-      {
-        text: 'SQL',
-        children: [
-          { text: 'MySQL', icon: 'http://cdn.leemuzi.com/weblog/MySQL.svg',  link: '/database/mysql/sql-intro'},
+          { text: '关系型数据库', icon: '/assets/mysqlico.svg',  link: '/system-architecture/database/base'},
         ]
       },
       // {
@@ -94,5 +88,4 @@ export default navbar([
     ]
   },
 
-  
 ]);

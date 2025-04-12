@@ -1,6 +1,7 @@
 ---
 # 这是文章的标题
-title: 动态SQL
+title: MyBatis 动态SQL
+icon: http://cdn.leemuzi.com/%E5%8A%A8%E6%80%81SQL%E9%85%8D%E7%BD%AE.svg
 order: 2
 # 设置作者
 author: 李木子

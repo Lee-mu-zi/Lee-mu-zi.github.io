@@ -1,7 +1,8 @@
 ---
 # 这是文章的标题
 title: MyBatis 与 Spring 整合实战
-order: 3
+icon: http://cdn.leemuzi.com/weblog/mybatis.svg
+order: 4
 author: 李木子
 category:
   - MyBatis

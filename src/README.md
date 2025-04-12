@@ -2,9 +2,9 @@
 home: true
 layout: BlogHome
 title: 主页
-heroText: 
+heroText: Hello World !!!
 tagline: 
-bgImage: http://cdn.leemuzi.com/paper.png
+bgImage: http://cdn.leemuzi.com/background.jpg
 heroFullScreen: true
 
 
