@@ -18,36 +18,40 @@ tagline:
 
 
 highlights:
-  - header: 简要介绍
-    image: http://cdn.leemuzi.com/introduce.png
-    bgImage: https://theme-hope-assets.vuejs.press/bg/3-light.svg
-    bgImageDark: https://theme-hope-assets.vuejs.press/bg/3-dark.svg
-    description: 简单介绍开始写记录性博客的原因
-    highlights:
-      - title: 📖 雁过留痕，风过留声。
-      - title: ❓ 填补知识盲区，强化记忆。
-      - title: 📦 个人知识库，避免重复踩坑。
-      - title: 👨‍💻 代码片段存档，以备不时之需。
+  # - header: 为什么要写博客？
+  #   image: http://cdn.leemuzi.com/introduce.png
+  #   bgImage: https://theme-hope-assets.vuejs.press/bg/3-light.svg
+  #   bgImageDark: https://theme-hope-assets.vuejs.press/bg/3-dark.svg
+  #   description: 
+    # highlights:
+    #   - title: 
+    #   - title: ❓ 
+    #   - title: 📦 
+    #   - title: 👨‍💻 
 
-  - header: 待续....
+  - header: 平凡之路
     description: 
-    image: http://cdn.leemuzi.com/waiting.png
+    image: http://cdn.leemuzi.com/road.png
     bgImage: https://theme-hope-assets.vuejs.press/bg/2-light.svg
     bgImageDark: https://theme-hope-assets.vuejs.press/bg/2-dark.svg
     bgImageStyle:
       background-repeat: repeat
       background-size: initial
-    # highlights:
-      # - title: 链接检查
-      #   icon: clipboard-check
-      #   details: 检查 Markdown 链接
-      #   link: ./guide/markdown/others.html#link-check
+    highlights:
+      - title: 2025/05/07日书
+        # icon: clipboard-check
+        # details: 检查 Markdown 链接
+        link: ./ordinary-road#_2025-05-07日书
+      - title: 2025/04/18日书
+        # icon: clipboard-check
+        # details: 检查 Markdown 链接
+        link: ./ordinary-road#_2025-04-18日书
 
-  # - header: 可定制的页面
-  #   description: 完整无障碍支持的可定制外观
-  #   image: /logo.png
-  #   bgImage: https://theme-hope-assets.vuejs.press/bg/9-light.svg
-  #   bgImageDark: https://theme-hope-assets.vuejs.press/bg/9-dark.svg
+  - header: 待续....
+    description: 
+    image: http://cdn.leemuzi.com/waiting.png
+    bgImage: https://theme-hope-assets.vuejs.press/bg/9-light.svg
+    bgImageDark: https://theme-hope-assets.vuejs.press/bg/9-dark.svg
   #   highlights:
   #     - title: 深色模式
   #       icon: circle-half-stroke

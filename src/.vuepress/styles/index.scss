@@ -75,13 +75,13 @@ ol {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.blog-page-wrapper {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment:fixed;
-  // background: #EEAECA;
-  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)
-}
+// .blog-page-wrapper {
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-attachment:fixed;
+//   // background: #EEAECA;
+//   background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)
+// }
 
 @mixin articleLightBg {
   $my-alpha: 0.6;

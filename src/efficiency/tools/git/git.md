@@ -1,5 +1,5 @@
 ---
-title: Git总结
+title: 版本控制 Git
 # icon: plus
 # cover: /assets/tools/git.svg
 order: 1

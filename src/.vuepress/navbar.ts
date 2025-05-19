@@ -46,6 +46,7 @@ export default navbar([
       {
         text: '数据库与存储',
         children: [
+          { text: 'SQL与优化器', icon: 'http://cdn.leemuzi.com/SQL.png',  link: '/system-architecture/sql/sql'},
           { text: '关系型数据库', icon: '/assets/mysqlico.svg',  link: '/system-architecture/database/base'},
         ]
       },
@@ -76,7 +77,8 @@ export default navbar([
       {
         text: '效能工具',
         children: [
-          { text: 'Git', icon: '/assets/git.svg',  link: '/efficiency/tools/git/git'},
+          { text: '版本控制工具Git', icon: '/assets/git.svg',  link: '/efficiency/tools/git/git'},
+          { text: '正则表达式regex', icon: 'http://cdn.leemuzi.com/regex.png',  link: '/efficiency/tools/regex/regex'},
         ]
       },
       {

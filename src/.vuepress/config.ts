@@ -13,16 +13,16 @@ export default defineUserConfig({
 
   theme,
 
-  head: [
-    ["style", {}, `
-      body {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment:fixed;
-        background: linear-gradient(90deg,rgb(234, 253, 237) 0%, #d9e7ff 100%)
-      }
-    `]
-  ],
+  // head: [
+  //   ["style", {}, `
+  //     body {
+  //       background-size: cover;
+  //       background-repeat: no-repeat;
+  //       background-attachment:fixed;
+  //       background: linear-gradient(90deg,rgb(234, 253, 237) 0%, #d9e7ff 100%)
+  //     }
+  //   `]
+  // ],
 
   
 
