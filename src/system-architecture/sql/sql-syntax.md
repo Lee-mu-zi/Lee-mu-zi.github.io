@@ -215,6 +215,59 @@ VALUES
 
 <br>
 
+### SQL INSERT INTO SELECT
+
+INSERT INTO SELECT 语句从一个表复制数据并将其插入另一个表。
+
+- INSERT INTO SELECT 要求源表和目标表中的数据类型匹配
+- 目标表中的现有记录不受影响
+
+**语法形式：**
+
+```sql
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+```
+
+**参数列表：**
+
+`table2`：需要插入数据的新表
+
+`(column1, column2, column3, ...)`：新表中需要插入的列
+
+`column1, column2, column3, ...`：从旧表中找出对应的列进行插入
+
+`table1`：旧表
+
+**实例展示：**
+
+```sql
+insert into
+    exam_record_before_2021 (uid, exam_id, start_time, submit_time, score)
+select
+    uid,
+    exam_id,
+    start_time,
+    submit_time,
+    score
+from
+    exam_record
+where
+    year(submit_time) < 2021
+```
+
+**实战训练：**
+
+[SQL111 插入记录（二）](https://www.nowcoder.com/practice/9681abf28745468c8adacb3b029a18ce?tpId=240&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj%3FquestionJobId%3D10%26subTabName%3Donline_coding_page)
+
+<br>
+
+------
+
+<br>
+
 ### SQL UPDATE
 
 UPDATE语句用于修改表中的现有记录。
@@ -1192,7 +1245,101 @@ FROM
 +-----------------------------------------------+-----------------------------------------------+
 ```
 
+<br>
 
+------
+
+<br>
+
+### MySQL DATE()、TIME()
+
+`DATE()`：从日期时间表达式中提取日期部分
+
+`TIME()`：从日期时间表达式中提取时间部分
+
+**语法形式：**
+
+```sql
+DATE(expr);
+TIME(expr);
+```
+
+**参数列表：**
+
+`expr`：日期时间表达式
+
+**实例展示：**
+
+```sql
+SELECT TIME("1999-03-14 19:30:10"); -- 1999-03-14
+SELECT TIME("1999-03-14 19:30:10"); -- 19:30:10
+```
+
+<br>
+
+------
+
+<br>
+
+### MySQL YEAR()、MONTH()、DAY()
+
+`YEAR()`：从指定的日期中获取年份
+`MONTH()`：从指定的日期中获取月份
+`DAY()`：从指定的日期中获取天
+
+**语法形式：**
+
+```sql
+YEAR(date)
+MONTH(date)
+DAY(date)
+```
+
+**参数列表：**
+
+`date`：日期
+
+**实例演示：**
+
+```sql
+SELECT YEAR("1999-03-14"); -- 1999
+SELECT MONTH("1999-03-14"); -- 3
+SELECT DAY("1999-03-14"); -- 14
+```
+
+<br>
+
+------
+
+<br>
+
+### MySQL HOUR()、MINUTE()、SECOND()
+
+`HOUR()`：返回日期时间的小时部分
+
+`MINUTE()`：返回日期时间的分钟部分
+
+`SECOND()`：返回日期时间的秒部分
+
+**语法形式：**
+
+```sql
+HOUR(time)
+MINUTE(time)
+SECOND(time)
+```
+
+**参数列表：**
+
+`time`：日期时间表达式或时间表达式
+
+**实例演示：**
+
+```sql
+SELECT HOUR("1999-03-14 19:30:10"); -- 19
+SELECT MINUTE("1999-03-14 19:30:10"); -- 30
+SELECT SECOND("1999-03-14 19:30:10"); -- 10
+```
 
 ## SQL关键词
 
