@@ -282,29 +282,33 @@ SET column1 = value1, column2 = value2, ...
 WHERE condition;
 ```
 
-**SQL UPDATE实例：**
+**参数列表：**
+
+`column`：需要更新的字段。
+
+`value`：字段的新值。
+
+`condition`：更新的条件
+
+**注意事项：**
+
+- 如果忽略where条件，将会导致表中的所有该字段的字均会被更新。
+
+**实例演示：**
 
 ```sql
-UPDATE user_profile 
-SET age = 101 
-WHERE
-	id = 6;
+update
+    examination_info
+set
+    tag = 'Python'
+where
+    tag = 'PYTHON';
+-- 表中 tag = 'PYTHON' 的字段全部修改为 Python。
 ```
 
-**结果集展示：**
+**实战训练：**
 
-```sql
-+----+-----------+--------+------+------------+----------+
-| id | device_id | gender | age  | university | province |
-+----+-----------+--------+------+------------+----------+
-|  1 |      2138 | male   |   21 | 北京大学   | BeiJing  |
-|  2 |      3214 | male   | NULL | 复旦大学   | Shanghai |
-|  3 |      6543 | female |   20 | 北京大学   | BeiJing  |
-|  4 |      2315 | female |   23 | 浙江大学   | ZheJiang |
-|  5 |      5432 | male   |   25 | 山东大学   | Shandong |
-|  6 |         0 | male   |  101 | 郑州大学   | HeNan    |
-+----+-----------+--------+------+------------+----------+
-```
+[更新记录（一）](https://www.nowcoder.com/practice/bfe8ad2bddc540fc911614aa648868b3?tpId=240&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj%3FquestionJobId%3D10%26subTabName%3Donline_coding_page)
 
 <br>
 
@@ -506,6 +510,55 @@ mysql> SELECT device_id,gender,CASE WHEN age >= 25 THEN '25及以上' WHEN age <
 |      5432 | male   | 25及以上 | 山东大学   | Shandong |
 +-----------+--------+----------+------------+----------+
 ```
+
+<br>
+
+------
+
+<br>
+
+### MySQL REPLACE INTO
+
+EPLACE INTO语句是一种用于插入新数据或更新已存在数据的操作。
+
+它的作用类似于`select`和`update`的结合体。
+
+可以在需要插入新记录时自动执行插入操作，在有冲突的时候更新已存在的记录。
+
+**语法形式：**
+
+```sql
+REPLACE INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+```
+
+**参数列表：**
+
+`table_name`：表明
+
+`column1, column2, column3, ...`：需要新增或替换的字段
+
+`value1, value2, value3, ...`：字段的新值
+
+**注意事项：**
+
+- `REPLACE INTO`语句只适用于具有主键或唯一索引的表；
+- 自增主键不会在记录被更新时改变。
+
+**实例演示：**
+
+```sql
+-- 初始行数据：(9003, 'SQL', 'medium', 60, '2020-01-02 10:00:00')
+REPLACE INTO
+    examination_info (exam_id, tag, difficulty, duration, release_time)
+VALUES
+    (9003, 'SQL', 'hard', 90, '2021-01-01 00:00:00')
+-- 替换后数据：(9003, 'SQL', 'hard', 90, '2021-01-01 00:00:00')
+```
+
+**实战训练：**
+
+[插入记录（三）](https://www.nowcoder.com/practice/978bcee6530a430fb0be716423d84082?tpId=240&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj%3FquestionJobId%3D10%26subTabName%3Donline_coding_page)
 
 <br>
 
