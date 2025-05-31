@@ -1,17 +1,25 @@
 .VPHome {
+
   // 自定义首页背景图
   &::before {
     // 图片来源：https://zhuanlan.zhihu.com/p/54060187
-    background-image: url(http://cdn.leemuzi.com/background.jpg);
+    background-image: url(./assets/bg.png);
     background-size: cover;
   }
+
   // 定义遮罩样式
-  background: radial-gradient(
-                  ellipse,
-                  rgba(var(--bg-gradient-home), 1) 0%,
-                  rgba(var(--bg-gradient-home), 0) 150%
-  );
+  background: radial-gradient(ellipse,
+    rgba(var(--bg-gradient-home), 1) 0%,
+    rgba(var(--bg-gradient-home), 0) 150%);
 }
+
+// footer.blog-footer[data-v-3f9ce05c] {
+//   background-color: transparent;
+// }
+
+// footer.blog-footer p[data-v-3f9ce05c] {
+//   color: #ffffff;
+// }
 
 body {
   font-family: "LXGW WenKai Screen";
