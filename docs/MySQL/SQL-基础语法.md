@@ -1,8 +1,6 @@
 ---
 # 这是文章的标题
 title: SQL基础语法
-order: 2
-author: 李木子
 category:
   - SQL
 ---

@@ -24,7 +24,11 @@ export default defineConfig({
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
     // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    [
+      'link',
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css' }
+    ]
   ],
   themeConfig: {
     // 展示 2,3 级标题在目录中
@@ -49,18 +53,35 @@ export default defineConfig({
       { text: 'Java', link: '/Java/' },
       { text: 'Spring全家桶', link: '/Spring/' },
       { text: 'MySQL', link: '/MySQL/' },
-      { text: '容器化技术', link: '/Container/' },
-      { text: '版本控制', link: '/Revision-control/' },
+      { text: '开发工具', link: '/Tools/' },
       { text: '算法', link: '/Algorithm/' },
+      { text: '浮生若梦', link: '/Life/' },
     ],
     socialLinks: [
       {
         icon: 'github',
         link: 'https://github.com/Lee-mu-zi'
+      },
+      {
+        icon: 'leetcode',
+        link: 'https://leetcode.cn/u/epic-crayzty/'
       }
     ],
 
     sidebar: {
+
+      "/Java/": [
+        {
+          text: 'Java 队列 Queue',
+          collapsed: false,
+          items: [
+            { text: 'Java 优先队列 PriorityQueue', link: '/Java/Java-PriorityQueue' },
+            // { text: 'Java集合-Collection', link: '/Java/Java集合-Collection' },
+            // { text: 'Java集合-Map', link: '' },
+          ]
+        }
+      ],
+
       "/Spring/": [
         {
           text: 'MyBatis',
@@ -77,7 +98,7 @@ export default defineConfig({
 
       "/MySQL/": [
         {
-          text: 'MySQL',
+          text: 'SQL',
           collapsed: false,
           items: [
 
@@ -87,25 +108,22 @@ export default defineConfig({
         },
       ],
 
-      "/Container/": [
+      "/Tools": [
         {
           text: 'Docker',
           collapsed: false,
           items: [
 
-            { text: 'Docker 基础', link: '/Container/Docker基础' },
+            { text: 'Docker 基础', link: '/Tools/Container/Docker基础' },
 
           ]
         },
-      ],
-
-      "/Revision-control/": [
         {
           text: 'Git',
           collapsed: false,
           items: [
 
-            { text: 'Git 基础', link: '/Revision-control/Git' },
+            { text: 'Git 基础', link: '/Tools/Revision-control/Git' },
 
           ]
         },
@@ -123,7 +141,11 @@ export default defineConfig({
 
           ]
         },
-      ]
+      ],
+
+      "/Life/": [
+        {text: 'test', link: '/Life/test'}
+      ],
 
     },
 
