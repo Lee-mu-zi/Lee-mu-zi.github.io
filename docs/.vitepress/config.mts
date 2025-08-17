@@ -151,15 +151,7 @@ export default defineConfig({
 
           ]
         },
-        {
-          text: '二叉树',
-          collapsed: false,
-          items: [
 
-            { text: '树的遍历', link: '/Algorithm/树的遍历' },
-
-          ]
-        },
       ],
 
       "/Life/": [
