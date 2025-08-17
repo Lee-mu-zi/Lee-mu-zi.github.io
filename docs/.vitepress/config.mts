@@ -146,9 +146,19 @@ export default defineConfig({
           collapsed: false,
           items: [
 
-            { text: '初识数据结构', link: '/Algorithm/base/初识数据结构' },
-            { text: '线性表', link: '/Algorithm/base/线性表' },
-            { text: '树和二叉树', link: '/Algorithm/base/树和二叉树' },
+            { text: '初识数据结构', link: '/Algorithm/base/base' },
+            { text: '线性表', link: '/Algorithm/base/linear-list' },
+            { text: '树和二叉树', link: '/Algorithm/base/tree-binary-tree' },
+
+          ]
+        },
+
+        {
+          text: '动态规划',
+          collapsed: false,
+          items: [
+
+            { text: '前后缀分解', link: '/Algorithm/dynamic-programing/prefixes-suffixes-decomposition' },
 
           ]
         },
