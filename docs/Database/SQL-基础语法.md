@@ -6,7 +6,7 @@ category:
 ---
 <br>
 
-<img src="http://cdn.leemuzi.com/weblog/jiyu.png" style="zoom:10%;" />作者寄语：
+<img src="http://cdn.leemuzi.com/weblog/jiyu.png" style="zoom:10%;" />：
 
 以下是 **SQL 语法**的核心内容整理，涵盖常用操作和示例。
 

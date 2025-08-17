@@ -52,7 +52,7 @@ export default defineConfig({
       // { text: '首页', link: '/' },
       { text: 'Java', link: '/Java/' },
       { text: 'Spring全家桶', link: '/Spring/' },
-      { text: 'MySQL', link: '/MySQL/' },
+      { text: 'Database', link: '/Database/' },
       { text: '开发工具', link: '/Tools/' },
       { text: '算法', link: '/Algorithm/' },
       { text: '浮生若梦', link: '/Life/' },
@@ -96,19 +96,29 @@ export default defineConfig({
         },
       ],
 
-      "/MySQL/": [
+      "/Database/": [
         {
           text: 'SQL',
           collapsed: false,
           items: [
 
-            { text: 'SQL-基础语法', link: '/MySQL/SQL-基础语法' },
+            { text: 'SQL-基础语法', link: '/Database/SQL-基础语法' },
+            { text: 'SQL-在线编程', link: '/Database/SQL-在线编程' },
 
           ]
         },
       ],
 
       "/Tools": [
+        {
+          text: 'Idea',
+          collapsed: false,
+          items: [
+
+            { text: 'Idea Http Client', link: '/Tools/Idea/Http-Client' },
+
+          ]
+        },
         {
           text: 'Docker',
           collapsed: false,
@@ -123,7 +133,7 @@ export default defineConfig({
           collapsed: false,
           items: [
 
-            { text: 'Git 基础', link: '/Tools/Revision-control/Git' },
+            { text: 'Git 基础', link: '/Tools/Revision-Control/Git' },
 
           ]
         },
@@ -135,9 +145,18 @@ export default defineConfig({
           collapsed: false,
           items: [
 
-            { text: '初识数据结构', link: '/Algorithm/初识数据结构' },
-            { text: '线性表', link: '/Algorithm/线性表' },
-            { text: '树和二叉树', link: '/Algorithm/树和二叉树' },
+            { text: '初识数据结构', link: '/Algorithm/base/初识数据结构' },
+            { text: '线性表', link: '/Algorithm/base/线性表' },
+            { text: '树和二叉树', link: '/Algorithm/base/树和二叉树' },
+
+          ]
+        },
+        {
+          text: '二叉树',
+          collapsed: false,
+          items: [
+
+            { text: '树的遍历', link: '/Algorithm/树的遍历' },
 
           ]
         },

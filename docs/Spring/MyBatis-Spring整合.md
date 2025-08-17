@@ -7,7 +7,7 @@ tag:
 
 ---
 
-::: tip 作者寄语：
+::: tip ：
 
 MyBatis 是一款优秀的持久层框架，它通过 XML 或注解的方式将 Java 对象与 SQL 语句进行映射，避免了传统 JDBC 的繁琐操作。与全自动 ORM 框架（如 Hibernate）不同，MyBatis 强调 SQL 的灵活控制，特别适合需要复杂 SQL 优化的场景。
 

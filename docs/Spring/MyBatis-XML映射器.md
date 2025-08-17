@@ -10,7 +10,7 @@ sticky: 997
 
 # MyBatis-XML映射器
 
-::: tip 作者寄语：
+::: tip ：
 
 MyBatis 的 XML 映射器是 MyBatis 框架中用于定义 SQL 语句和结果映射的核心配置文件，它将 Java 方法与 SQL 语句进行绑定。
 
