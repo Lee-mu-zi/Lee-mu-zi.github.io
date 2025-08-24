@@ -42,6 +42,7 @@ export default defineConfig({
     sidebarMenuLabel: '相关文章',
     lastUpdatedText: '上次更新于',
 
+    
     // 设置logo
     logo: '/favicon.ico',
     // editLink: {
@@ -103,7 +104,7 @@ export default defineConfig({
           collapsed: false,
           items: [
 
-            { text: 'SQL-基础语法', link: '/Database/SQL-基础语法' },
+            { text: 'SQL-基础语法', link: '/Database/base' },
             { text: 'SQL-在线编程', link: '/Database/SQL-在线编程' },
 
           ]
@@ -142,7 +143,7 @@ export default defineConfig({
 
       "/Algorithm/": [
         {
-          text: '数据结构',
+          text: '零、数据结构',
           collapsed: false,
           items: [
 
@@ -154,11 +155,41 @@ export default defineConfig({
         },
 
         {
-          text: '动态规划',
+          text: '一、滑动窗口与双指针',
+          collapsed: false,
+          items: [
+
+            { text: '不定长滑动窗口', link: '/Algorithm/sliding-window-double-pointers/variable-length' },
+            
+          ]
+        },
+
+        {
+          text: '二、二分算法',
+          collapsed: false,
+          items: [
+
+            { text: '二分查找', link: '/Algorithm/binary-algorithm/binary-search' },
+
+          ]
+        },
+
+        {
+          text: '七、动态规划',
           collapsed: false,
           items: [
 
             { text: '前后缀分解', link: '/Algorithm/dynamic-programing/prefixes-suffixes-decomposition' },
+
+          ]
+        },
+
+        {
+          text: '八、常用数据结构',
+          collapsed: false,
+          items: [
+
+            { text: '0、常用枚举技巧', link: '/Algorithm/data-structure/enum-techniques' },
 
           ]
         },
@@ -177,5 +208,7 @@ export default defineConfig({
   //   plugins: [pagefindPlugin()],
   // },
 
-
+  markdown: {
+    math: true
+  }
 })

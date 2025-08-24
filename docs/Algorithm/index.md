@@ -19,6 +19,18 @@ recommend: false
 - [线性表](./base/linear-list.md)
 - [树和二叉树](./base/tree-binary-tree.md)
 
-## 前缀和
+## 滑动窗口与双指针
+
+- [不定长滑动窗口](./sliding-window-double-pointers/variable-length.md)
+
+## 二分算法
+
+- [二分查找](./binary-algorithm/binary-search.md)
+
+## 动态规划
 
 - [前后缀分解](./dynamic-programing/prefixes-suffixes-decomposition.md)
+
+## 常用数据结构
+
+- [常用枚举技巧](./data-structure/enum-techniques.md)
