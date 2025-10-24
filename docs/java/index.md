@@ -9,7 +9,7 @@ recommend: false
 # Java
 
 ## Java Queue
-- [Java 优先队列 PriorityQueue](./collection/Java-PriorityQueue.md)
+- [Java 优先队列 PriorityQueue](./collection/priority-queue.md)
 
 ## Spring
 - [Spring AOP](./spring/AOP.md)
