@@ -5,6 +5,7 @@ export default defineConfig({
     title: "Lee",
     description: "A VitePress Site",
     lastUpdated: true,
+
     // 如果项目名已经为 name.github.io 域名，则不需要修改！
     base: process.env.NODE_ENV === 'production' ? '/Lee-mu-zi.github.io/' : '/',
     themeConfig: {
@@ -203,10 +204,10 @@ export default defineConfig({
             ],
 
         },
-
+        outline: false,
 
         footer: {
-            message: '<p ><a href="https://vitepress.dev/zh/">主题：vitepress</a></p>   <a href="https://beian.miit.gov.cn/#/Integrated/index">备案：豫ICP备2024079032号-1</a>',
+            message: '<p ><a href="https://beian.miit.gov.cn/#/Integrated/index">备案：豫ICP备2024079032号-1</a></p><a href="https://vitepress.dev/zh/">主题：vitepress</a>',
             copyright: 'Copyright © 2025'
         },
 
@@ -229,7 +230,8 @@ export default defineConfig({
         },
 
         editLink: {
-            pattern: 'https://github.com/Lee-mu-zi/Lee-mu-zi.github.io'
+            pattern: 'https://github.com/Lee-mu-zi/Lee-mu-zi.github.io',
+            text: '在 GitHub 上编辑此页面'
         },
 
     }
