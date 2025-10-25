@@ -193,11 +193,15 @@ export default defineConfig({
 
         // 开启最后更新时间
         lastUpdated: {
-            text: 'Updated at',
+            text: '最后更新于',
             formatOptions: {
                 dateStyle: 'full',
                 timeStyle: 'medium'
             }
+        },
+
+        markdown: {
+            math: true
         },
 
     }
