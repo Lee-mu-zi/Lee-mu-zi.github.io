@@ -5,6 +5,8 @@ export default defineConfig({
     title: "Lee",
     description: "A VitePress Site",
     lastUpdated: true,
+    // 如果项目名已经为 name.github.io 域名，则不需要修改！
+    base: process.env.NODE_ENV === 'production' ? '/Lee-mu-zi.github.io/' : '/',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [

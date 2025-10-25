@@ -13,37 +13,37 @@ hero:
 
 features:
   - icon:
-      src: /.vitepress/public/images/docs/java.svg
+      src: /images/main/java.svg
     title: Java
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /java/index.md
     
   - icon:
-      src: /.vitepress/public/images/docs/sql.svg
+      src: ./images/main/sql.svg
     title: SQL
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /database/index.md
     
   - icon:
-      src: /.vitepress/public/images/docs/Docker.svg
+      src: ./images/main/Docker.svg
     title: Docker
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /tools/index.md
     
   - icon:
-      src: /.vitepress/public/images/docs/git.svg
+      src: ./images/main/git.svg
     title: Git
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /tools/index.md
     
   - icon:
-      src: /.vitepress/public/images/docs/calculate.svg
+      src: ./images/main/calculate.svg
     title: 钢铁是如何练成的
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /algorithm/index.md
     
   - icon:
-      src: /.vitepress/public/images/docs/dream.svg
+      src: ./images/main/dream.svg
     title: 浮生若梦
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /life/index.md
