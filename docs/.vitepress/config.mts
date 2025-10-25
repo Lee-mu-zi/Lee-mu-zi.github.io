@@ -27,7 +27,7 @@ export default defineConfig({
             {
                 icon: 'leetcode',
                 link: 'https://leetcode.cn/u/epic-crayzty/'
-            }
+            },
         ],
 
         sidebar: {
