@@ -204,5 +204,9 @@ export default defineConfig({
             math: true
         },
 
+        editLink: {
+            pattern: 'https://github.com/Lee-mu-zi/Lee-mu-zi.github.io'
+        },
+
     }
 })
