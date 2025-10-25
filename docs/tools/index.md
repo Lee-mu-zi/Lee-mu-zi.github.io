@@ -13,10 +13,10 @@ recommend: false
 
 ## Docker
 
-- [Docker 基础](./container/docker.md)
+- [Docker 基础](../10.docker/index)
 
 ## Git
 
-- [Git 基础](./revision-control/git.md)
+- [Git 基础](../11.git/index)
 
 
