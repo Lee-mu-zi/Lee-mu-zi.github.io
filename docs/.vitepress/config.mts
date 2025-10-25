@@ -5,7 +5,6 @@ export default defineConfig({
     title: "Lee",
     description: "A VitePress Site",
     lastUpdated: true,
-    base: '/',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
